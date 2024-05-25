@@ -1,15 +1,30 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { createMemoryRouter, RouterProvider } from 'react-router-dom';
+import { IndexPage } from './pages/IndexPage';
+import { TestPage } from './pages/TestPage';
+import { Layout } from './Layout';
+
+const router = createMemoryRouter([
+  {
+    path: '/',
+    element: <Layout><IndexPage /></Layout>,
+  },
+  {
+    path: '/test',
+    element: <Layout><TestPage /></Layout>,
+  },
+]);
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    <App />
+    {/* <App /> */}
+    <RouterProvider router={router} />
   </React.StrictMode>
 );
 

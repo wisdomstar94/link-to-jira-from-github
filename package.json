@@ -1,27 +1,35 @@
 {
-  "name": "github-to-jira",
-  "version": "0.1.0",
-  "private": true,
+  "name": "link-to-jira-from-github",
+  "version": "0.0.1",
+  "private": false,
   "dependencies": {
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^13.0.0",
     "@testing-library/user-event": "^13.2.1",
+    "@types/chrome": "^0.0.268",
     "@types/jest": "^27.0.1",
     "@types/node": "^16.7.13",
     "@types/react": "^18.0.0",
     "@types/react-dom": "^18.0.0",
+    "chrome-types": "^0.1.284",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
+    "react-router-dom": "^6.23.1",
     "react-scripts": "5.0.1",
+    "tailwindcss": "^3.4.3",
     "typescript": "^4.4.2",
+    "uuid": "^9.0.1",
     "web-vitals": "^2.1.0"
   },
   "scripts": {
+    "esbuild:github-script": "npx esbuild build/content-scripts/github-script.ts --bundle --outfile=build/content-scripts/github-script.js",
+    "esbuild:background": "npx esbuild build/background.ts --bundle --outfile=build/background.js",
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "react-scripts build && yarn esbuild:github-script && yarn esbuild:background",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
+  "homepage": "./",
   "eslintConfig": {
     "extends": [
       "react-app",
@@ -39,5 +47,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@types/uuid": "^9"
   }
 }
