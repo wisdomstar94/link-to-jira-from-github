@@ -1,0 +1,33 @@
+name: 'release deploy'
+
+on:
+  push:
+    tags:
+      - 'v[0-9]+.[0-9]+.[0-9]+'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 20
+      - run: yarn install
+      - run: yarn build
+      
+      - run: rm ./build/content-scripts/github-script.ts
+      - run: rm ./build/background.ts
+
+      - run: mv ./build ./link_to_jira_from_github_${{ github.ref_name }}
+      - run: tar -czvf ./link_to_jira_from_github_${{ github.ref_name }}.zip ./link_to_jira_from_github_${{ github.ref_name }}/*
+
+      - name: asset upload 
+        uses: svenstaro/upload-release-action@v2
+        with:
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          file: link_to_jira_from_github_${{ github.ref_name }}.zip
+          asset_name: link_to_jira_from_github_${{ github.ref_name }}.zip
+          tag: ${{ github.ref }}
