@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
-  "version": "1.0.2",
-  "short_name": "Github To Jira",
-  "name": "Github To Jira",
+  "version": "1.0.3",
+  "short_name": "Link To Jira From Github",
+  "name": "Link To Jira From Github",
   "action": {
     "default_popup": "index.html"
   },
