@@ -30,7 +30,7 @@ function checkPrDetailPage(targetItem: ISchema.Data.GithubJiraSetupList) {
     if (titleElement === null) return;
     const is_ltjfg_changed = titleElement.getAttribute('data-is-ltjfg-changed');
     if (is_ltjfg_changed === 'true') {
-      console.log('already applied');
+      // console.log('already applied');
       return;
     }
 
@@ -60,7 +60,7 @@ function checkCommitDetailPage(targetItem: ISchema.Data.GithubJiraSetupList) {
     if (titleElement === null) return;
     const is_ltjfg_changed = titleElement.getAttribute('data-is-ltjfg-changed');
     if (is_ltjfg_changed === 'true') {
-      console.log('already applied');
+      // console.log('already applied');
       return;
     }
     

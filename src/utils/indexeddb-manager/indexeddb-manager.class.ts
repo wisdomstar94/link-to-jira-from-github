@@ -117,7 +117,7 @@ export class IndexeddbManager<DBNAME extends string, STORENAME extends string> {
         db?.close();
       };
       request.onupgradeneeded = (event) => {
-        console.log('@onupgradeneeded', event);
+        // console.log('@onupgradeneeded', event);
         this.onUpgradeneededCallback(event, dbName);
       };
 
@@ -186,7 +186,7 @@ export class IndexeddbManager<DBNAME extends string, STORENAME extends string> {
         db?.close();
       };
       request.onupgradeneeded = (event) => {
-        console.log('@onupgradeneeded', event);
+        // console.log('@onupgradeneeded', event);
         this.onUpgradeneededCallback(event, dbName);
       };
       
@@ -242,7 +242,7 @@ export class IndexeddbManager<DBNAME extends string, STORENAME extends string> {
         db?.close();
       };
       request.onupgradeneeded = (event) => {
-        console.log('@onupgradeneeded', event);
+        // console.log('@onupgradeneeded', event);
         this.onUpgradeneededCallback(event, dbName);
       };
     };
@@ -299,7 +299,7 @@ export class IndexeddbManager<DBNAME extends string, STORENAME extends string> {
         db?.close();
       };
       request.onupgradeneeded = (event) => {
-        console.log('@onupgradeneeded', event);
+        // console.log('@onupgradeneeded', event);
         this.onUpgradeneededCallback(event, dbName);
       };
 
@@ -359,7 +359,7 @@ export class IndexeddbManager<DBNAME extends string, STORENAME extends string> {
         db?.close();
       };
       request.onupgradeneeded = (event) => {
-        console.log('@onupgradeneeded', event);
+        // console.log('@onupgradeneeded', event);
         this.onUpgradeneededCallback(event, dbName);
       };
 
@@ -381,13 +381,13 @@ export class IndexeddbManager<DBNAME extends string, STORENAME extends string> {
       db.close();
     };
     request.onupgradeneeded = (event) => {
-      console.log('@onupgradeneeded', event);
+      // console.log('@onupgradeneeded', event);
       this.onUpgradeneededCallback(event, dbName);
     };
   }
 
   onUpgradeneededCallback(event: IDBVersionChangeEvent, dbName: string, onResult?: (defineStore: IIndexeddbManager.DefineStore<STORENAME>, isDefineSucess: boolean, isExist: boolean) => void, onEnd?: () => void) {
-    console.log('@onupgradeneeded..', event);
+    // console.log('@onupgradeneeded..', event);
     const schema = this.defineSchemas.find(x => x.dbName === dbName);
     if (schema === undefined) {
       console.error(`일치하는 schema 가 없습니다.`);
