@@ -1,14 +1,12 @@
 {
   "manifest_version": 3,
-  "version": "1.0.3",
+  "version": "1.0.4",
   "short_name": "Link To Jira From Github",
   "name": "Link To Jira From Github",
   "action": {
     "default_popup": "index.html"
   },
-  "permissions": [
-    "notifications"
-  ],
+  "permissions": ["notifications"],
   "background": {
     "service_worker": "background.js",
     "type": "module"
